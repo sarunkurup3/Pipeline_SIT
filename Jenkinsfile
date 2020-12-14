@@ -1,22 +1,23 @@
 pipeline{
 agent any
-
+tools {
+        maven 'MAVEN_HOME' 
+    }
 stages{
 
 stage('Compile Stage'){
 steps{
-withMaven(maven:'MAVEN_HOME'){
-bat 'mvn clean compile'}
+bat 'mvn clean compile'
 }}
+
 stage('Build Stage'){
 steps{
-withMaven(maven:'MAVEN_HOME'){
-bat 'mvn clean install'}
+bat 'mvn clean install'
 }}
+
 stage('Test Stage'){
 steps{
-withMaven(maven:'MAVEN_HOME'){
-bat 'mvn clean test'}
+bat 'mvn clean test'
 }}
 
 }
