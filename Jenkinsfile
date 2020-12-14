@@ -6,17 +6,17 @@ stages{
 stage('Compile Stage'){
 steps{
 withMaven(maven:'MAVEN_HOME'){
-sh 'mvn clean compile'}
+bat 'mvn clean compile'}
 }}
-stage('Testing Stage'){
+stage('Build Stage'){
 steps{
 withMaven(maven:'MAVEN_HOME'){
-sh 'mvn test'}
+bat 'mvn clean install'}
 }}
-stage('Deployment Stage'){
+stage('Test Stage'){
 steps{
 withMaven(maven:'MAVEN_HOME'){
-sh 'mvn deploy'}
+bat 'mvn clean test'}
 }}
 
 }
