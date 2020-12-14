@@ -5,6 +5,14 @@ tools {
     }
 stages{
 
+stage('Checkout')
+    {
+    step{
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '69277e6d-d6c6-44c4-b736-e4eb410dc10e', url: 'https://github.com/sarunkurup3/Pipeline_SIT.git']]]) 
+    	}
+    }
+    
+
 stage('Compile Stage'){
 steps{
 bat 'mvn clean compile'
