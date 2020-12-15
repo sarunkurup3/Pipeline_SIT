@@ -23,6 +23,11 @@ steps{
 bat 'mvn clean install'
 }}
 
+stage('Code Coverage Stage'){
+steps{
+jacoco()
+}}        
+        
 stage('Test Stage'){
 steps{
 bat 'mvn clean test'
